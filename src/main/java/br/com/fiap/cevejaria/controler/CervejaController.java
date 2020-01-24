@@ -2,6 +2,7 @@ package br.com.fiap.cevejaria.controler;
 
 import br.com.fiap.cevejaria.dto.CervejaDTO;
 import br.com.fiap.cevejaria.dto.CreateCervejaDTO;
+import br.com.fiap.cevejaria.dto.PrecoCervejaDTO;
 import br.com.fiap.cevejaria.dto.Tipo;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -55,8 +56,19 @@ public class CervejaController {
         cervejaDTO.setteorAlcoolico(createCervejaDTO.getteorAlcoolico());
         cervejaDTO.setDataLancamento(createCervejaDTO.getDataLancamento());
         cervejaDTO.setTipo(createCervejaDTO.getTipo());
-
-
         return cervejaDTO;
+    }
+
+    @PatchMapping("{id}")
+    public CervejaDTO update(@PathVariable Integer id, @RequestBody PrecoCervejaDTO precoCervejaDTO){
+        CervejaDTO cervejaDTO = findById(id);
+        cervejaDTO.setPreco(precoCervejaDTO.getPreco());
+        return cervejaDTO;
+    }
+
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable Integer id){
+        CervejaDTO cervejaDTO = findById((id));
+        cervejaDTOList.remove((cervejaDTO));
     }
 }
