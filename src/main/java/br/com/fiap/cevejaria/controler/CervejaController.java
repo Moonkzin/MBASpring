@@ -2,14 +2,15 @@ package br.com.fiap.cevejaria.controler;
 
 import br.com.fiap.cevejaria.dto.CervejaDTO;
 import br.com.fiap.cevejaria.dto.Tipo;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("Cervejas")
@@ -26,7 +27,15 @@ public class CervejaController {
     }
 
     @GetMapping
-    public List<CervejaDTO> getAll(){
-        return cervejaDTOList ;
+    public List<CervejaDTO> getAll(@RequestParam(required = false) Tipo tipo){
+        return cervejaDTOList.stream().filter(cervejaDTO -> tipo == null || cervejaDTO.getTipo().equals((tipo))).collect(Collectors.toList());
+    }
+
+    @GetMapping("{id}")
+    public CervejaDTO findById(@PathVariable Integer id){
+        return cervejaDTOList.stream()
+                .filter(cervejaDTO -> cervejaDTO.getId().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 }
