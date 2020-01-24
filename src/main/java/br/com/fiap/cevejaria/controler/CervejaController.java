@@ -59,11 +59,5 @@ public class CervejaController {
         return cervejaDTO;
     }
 
-    @PatchMapping("{id}")
-    public CervejaDTO update(@PathVariable Integer id, @RequestBody PrecoCervejaDTO precoCervejaDTO){
-        CervejaDTO cervejaDTO = findById(id);
-        cervejaDTO.setPreco(precoCervejaDTO.getPreco());
-        return cervejaDTO;
-    }
 
 }
