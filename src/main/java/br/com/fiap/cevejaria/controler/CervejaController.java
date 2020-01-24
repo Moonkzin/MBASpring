@@ -66,4 +66,9 @@ public class CervejaController {
         return cervejaDTO;
     }
 
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable Integer id){
+        CervejaDTO cervejaDTO = findById((id));
+        cervejaDTOList.remove((cervejaDTO));
+    }
 }
