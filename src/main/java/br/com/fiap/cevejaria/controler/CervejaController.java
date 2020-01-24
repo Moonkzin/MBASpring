@@ -3,6 +3,7 @@ package br.com.fiap.cevejaria.controler;
 import br.com.fiap.cevejaria.dto.CervejaDTO;
 import br.com.fiap.cevejaria.dto.Tipo;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping("Cervejas")
 public class CervejaController {
 
     private List<CervejaDTO> cervejaDTOList = new ArrayList<>();
