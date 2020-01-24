@@ -3,47 +3,19 @@ package br.com.fiap.cevejaria.dto;
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 
-public class CervejaDTO {
+public class CreateCervejaDTO {
 
-    private Integer id;
+    public CreateCervejaDTO(){}
+
     private String marca;
     private Double teorAlcoolico;
     private Tipo tipo;
     private BigDecimal preco;
     private ZonedDateTime dataLancamento;
 
-    public CervejaDTO(){}
-
-    public CervejaDTO(CreateCervejaDTO createCervejaDTO, Integer id) {
-        this.id = id;
-        this.marca  = createCervejaDTO.getMarca();
-        this.teorAlcoolico  = createCervejaDTO.getteorAlcoolico();
-        this.tipo  = createCervejaDTO.getTipo();
-        this.preco  = createCervejaDTO.getPreco();
-        this.dataLancamento  = createCervejaDTO.getDataLancamento();
-    }
-
-    public CervejaDTO(Integer id, String marca, Double teorAlcoolico, Tipo tipo, BigDecimal preco, ZonedDateTime dataLancamento) {
-        this.id = id;
-        this.marca = marca;
-        this.teorAlcoolico = teorAlcoolico;
-        this.tipo = tipo;
-        this.preco = preco;
-        this.dataLancamento = dataLancamento;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public String getMarca() {
         return marca;
     }
-
 
     public void setMarca(String marca) {
         this.marca = marca;
@@ -78,6 +50,14 @@ public class CervejaDTO {
     }
 
     public void setDataLancamento(ZonedDateTime dataLancamento) {
+        this.dataLancamento = dataLancamento;
+    }
+
+    public CreateCervejaDTO(String marca, Double teorAlcoolico, Tipo tipo, BigDecimal preco, ZonedDateTime dataLancamento) {
+        this.marca = marca;
+        this.teorAlcoolico = teorAlcoolico;
+        this.tipo = tipo;
+        this.preco = preco;
         this.dataLancamento = dataLancamento;
     }
 }
