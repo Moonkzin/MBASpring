@@ -3,5 +3,6 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/src/main/resources/db/migration/V1_000__create_cerveja.sql" dialect="MariaDB" />
     <file url="file://$PROJECT_DIR$/src/main/resources/db/migration/V1_001__add_column_preco_venda.sql" dialect="ClickHouse" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/db/migration/V1_002__create_user.sql" dialect="MySQL" />
   </component>
 </project>
