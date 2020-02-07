@@ -12,4 +12,13 @@ Verify imports from Gradle
 Right-click bluid.gradle "Buld"
 <br>
 Verify SDK Configuration
+<br>
+exmaple post to create
+{
+    "marca": "Marca 10",
+    "teorAlcoolico": 2.5,
+    "tipo": "PILSEN",
+    "preco": 12.9,
+    "dataLancamento": "2017-01-30T20:02:30.504365-02:00"
+}
 
